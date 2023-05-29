@@ -1,0 +1,55 @@
+/*(3) 網頁中使用了 5 種不同的 CSS 語法所設計的特效，相關語法敘述皆須置於名稱為*/
+
+div {
+    overflow-x: auto;
+    text-align: center;
+}
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+th, td{
+    text-align: left;
+    padding: 50px;
+}
+.style { /*特效1*/
+    background: linear-gradient(to right, rgb(159, 221, 242), rgb(246, 163, 181));
+    color: rgb(0, 0, 0);
+}
+.middle {
+    text-align: center;
+}
+.shadow {/*特效2*/
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
+    color: aliceblue;
+}
+.style1{ /*特效3*/
+    background-color: #bfdce6;
+    color: rgb(150, 138, 138);
+}
+
+/*特效4*/
+tr:nth-child(even){  
+    background-color: #a8ced8;
+    color: rgb(102, 93, 93);
+}
+/*特效5*/
+tr:hover {
+    opacity: 0.5;
+}
+/*特效6*/
+a:link{
+    color: green;
+}
+a:visited{
+    color: red;
+}
+a:hover{
+    color:yellow;
+}
+a:active{
+    color: blue;
+}

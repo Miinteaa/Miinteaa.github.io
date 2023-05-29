@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匯率計算機</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="style">
+        <h1 class="shadow">Online Exchange</h1>
+        <a href="https://rate.bot.com.tw/xrt" target="_blank">來源:台灣銀行</a>
+        <hr><!--(1)在網頁中以文字說明運用方式，輸入台幣金額-->
+        <input id="money" type="text" placeholder="請輸入金額(NTD)" value=""/>
+        <button type="button" onclick="change()">執行</button>
+        <button type="button_reset" onclick="reset()">Reset</button> <!--(4) 具備重新開始(reset)功能的按鈕，讓使用者可以進行全新一輪的計算-->
+        <br>
+        <br>
+    </div>
+    <div class="style1">
+        <table>
+            <tr> <!--(1)顯示轉換成美金、歐元、日圓、韓元、澳幣的金額與幣別單位-->
+                <th>
+                    <p>美金</p>
+                </th>
+                <th class="middle">
+                    <p id="infoUSD"></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p>歐元EUR</p>
+                </th>
+                <th class="middle">
+                    <p id="infoEUR"></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p>日圓JPY</p>
+                </th>
+                <th class="middle">
+                    <p id="infoJPY"></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p>韓元KRW</p>
+                </th>
+                <th class="middle">
+                    <p id="infoKRW"></p>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p>澳幣AUD</p>
+                </th>
+                <th class="middle">
+                    <p id="infoAUD"></p>
+                </th>
+            </tr>
+            
+        </table>
+    </div>
+    
+    <div>
+        
+    </div>
+    <script>
+        function change(){
+           // let result=[];
+            var USD=30.96;
+            var EUR=33.46;
+            var JPY=0.2219;
+            var KRW=0.02535;
+            var AUD=20.45;
+            var input = parseInt(document.getElementById("money").value);
+
+            //(5) 具備輸入檢查功能，若使用者輸入的內容非有效數值，按下執行計算的按鈕後會跳出警告，並觸發重新開始(reset)功能
+            if(isNaN(document.getElementById("money").value)){
+                alert('非有效數值\n請輸入正確金額！');
+                reset();
+            }
+            else if(document.getElementById("money").value==""){
+                alert('請輸入金額！');
+                reset();
+            }
+            else{ //(1)至少要顯示到小數點下第 2 位
+                var resultUSD = input/USD;
+                document.getElementById("infoUSD").innerHTML = resultUSD.toFixed(2)+"  USD";
+                var resultEUR = input/EUR;
+                document.getElementById("infoEUR").innerHTML = resultEUR.toFixed(2)+"  EUR";
+                var resultJPY = input/JPY;
+                document.getElementById("infoJPY").innerHTML = resultJPY.toFixed(2)+"  JPY";
+                var resultKRW = input/KRW;
+                document.getElementById("infoKRW").innerHTML = resultKRW.toFixed(2)+"  KRW";
+                var resultAUD = input/AUD;
+                document.getElementById("infoAUD").innerHTML = resultAUD.toFixed(2)+"  AUD";
+            }
+        }
+        function reset(){ //(4) 具備重新開始(reset)功能的按鈕，讓使用者可以進行全新一輪的計算
+            document.getElementById("infoUSD").innerHTML = "";
+            document.getElementById("infoEUR").innerHTML = "";
+            document.getElementById("infoJPY").innerHTML = "";
+            document.getElementById("infoKRW").innerHTML = "";
+            document.getElementById("infoAUD").innerHTML = "";
+            document.getElementById("money").value = "";
+        }
+    </script>
+</body>
+</html>
